@@ -1,0 +1,98 @@
+# Credit Risk & Churn Analytics Pipeline
+
+## Overview
+End-to-end analytics pipeline designed to support credit risk monitoring and customer churn analysis.  
+The system transforms raw transactional and customer data into structured, validated datasets for KPI tracking, segmentation, and predictive modeling.
+
+*Stack:* SQL (warehouse modeling), Python (ETL & validation), BigQuery/Snowflake (warehouse), BI layer  
+*Scale:* Designed for high-volume transactional datasets (100M+ rows pattern)  
+*Focus:* Repeatable pipelines, incremental loading, metric consistency, performance optimization
+
+---
+
+## Problem
+
+Financial and lending analytics require:
+- Consistent KPI definitions
+- Reliable feature engineering
+- Scalable data transformations
+- Low-latency reporting
+- Reduced manual reconciliation
+
+Raw transactional data was fragmented and not structured for churn or risk analysis.
+
+---
+
+## Solution Architecture
+
+### Data Flow
+
+1. Raw transaction & customer tables
+2. Staging transformations
+3. Modeled warehouse layer (Star Schema)
+4. Feature engineering layer
+5. KPI & monitoring tables
+6. BI / ML consumption
+
+---
+
+## Data Model
+
+### Fact Tables
+- fact_transactions
+- fact_customer_activity
+- fact_payments
+
+### Dimension Tables
+- dim_customer
+- dim_product
+- dim_time
+
+*Grain:* One row per customer per day (for churn monitoring layer)
+
+---
+
+## Pipeline Design
+
+### Incremental Strategy
+- Partitioned by transaction_date
+- Incremental merge using watermark logic
+- Optimized clustering on customer_id
+
+### Performance Optimization
+- Reduced unnecessary joins
+- Pre-aggregated heavy metrics
+- Indexed/clustered on high-cardinality fields
+
+### Data Quality
+- Null validation checks
+- Referential integrity checks
+- Aggregation reconciliation tests
+- Threshold-based anomaly flags
+
+---
+
+## Key Metrics
+
+- Churn rate
+- Delinquency rate
+- Payment completion ratio
+- Customer lifetime value (CLV)
+- Risk exposure distribution
+
+---
+
+## Business Impact
+
+- Standardized KPI definitions across reporting
+- Reduced manual reconciliation effort
+- Improved reporting performance via optimized transformations
+- Enabled repeatable churn monitoring framework
+
+---
+
+## Future Improvements
+
+- Add automated anomaly detection
+- Integrate ML scoring layer
+- Add monitoring dashboard for pipeline failures
