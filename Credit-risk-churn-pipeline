@@ -96,3 +96,12 @@ Raw transactional data was fragmented and not structured for churn or risk analy
 - Add automated anomaly detection
 - Integrate ML scoring layer
 - Add monitoring dashboard for pipeline failures
+
+---
+
+## Performance Considerations
+
+- Partitioned fact tables by transaction_date
+- Clustered large tables on customer_id
+- Pre-aggregated heavy metrics to reduce dashboard latency
+- Reduced unnecessary joins in reporting layer
