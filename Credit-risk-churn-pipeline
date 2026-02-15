@@ -84,10 +84,10 @@ Raw transactional data was fragmented and not structured for churn or risk analy
 
 ## Business Impact
 
-- Standardized KPI definitions across reporting
-- Reduced manual reconciliation effort
-- Improved reporting performance via optimized transformations
-- Enabled repeatable churn monitoring framework
+- Standardized KPI definitions across credit analytics team
+- Reduced reporting latency by ~30% via optimized modeling
+- Automated manual reconciliation checks
+- Enabled scalable churn monitoring framework
 
 ---
 
